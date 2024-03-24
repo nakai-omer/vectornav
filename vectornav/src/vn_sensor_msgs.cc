@@ -114,7 +114,8 @@ public:
   }
 
 private:
-  void convert_to_enu(const vectornav_msgs::msg::CommonGroup::SharedPtr msg_in, sensor_msgs::msg::Imu& msg_out) const
+  void convert_to_enu(
+    const vectornav_msgs::msg::CommonGroup::SharedPtr msg_in, sensor_msgs::msg::Imu & msg_out) const
   {
     // NED to ENU conversion
     // swap x and y and negate z
@@ -193,8 +194,8 @@ private:
     {
       sensor_msgs::msg::Imu msg;
       msg.header = msg_in->header;
-      
-      if(use_enu) {
+
+      if (use_enu) {
         convert_to_enu(msg_in, msg);
       } else {
         msg.angular_velocity = msg_in->angularrate;
@@ -220,7 +221,7 @@ private:
       sensor_msgs::msg::Imu msg;
       msg.header = msg_in->header;
 
-      if(use_enu) {
+      if (use_enu) {
         convert_to_enu(msg_in, msg);
       } else {
         msg.angular_velocity = msg_in->angularrate;
